@@ -1,0 +1,551 @@
+<!doctype html>
+
+<!--
+  CALL X Assistant v5
+  Refactored from v4 for maintainability.
+  - CSS: assets/callx.css
+  - Hero image/font: assets/
+  - Survey/config/logic: assets/js/
+-->
+<html lang="ko">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   CALL X — 받기 어려운 전화, AI가 대신 응대합니다
+  </title>
+  <link href="assets/callx.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <div class="wrap">
+   <nav>
+    <div class="brand">
+     CALL X
+     <small>
+      ASSISTANT
+     </small>
+    </div>
+    <button class="pill" data-start="">
+     의견 남기기
+    </button>
+   </nav>
+   <header class="hero">
+    <div class="copy">
+     <div class="eyebrow">
+      YOUR CALL. YOUR RULES.
+     </div>
+     <h1>
+      받기 어려운 전화,
+      <br/>
+      <em>
+       AI가 대신
+      </em>
+      <br/>
+      응대합니다.
+     </h1>
+     <p>
+      용건을 확인하고, 미리 정한 답변을 전합니다.
+      <br/>
+      직접 결정할 일은 당신에게 알려줍니다.
+     </p>
+     <button class="primary" data-start="">
+      어떤 전화를 맡기고 싶으세요? ↗
+     </button>
+     <div class="note">
+      선택형 6문항 · 이름·연락처 수집 없음
+     </div>
+    </div>
+    <div class="hero-art">
+     <div class="art-label">
+      <span class="signal-dot">
+      </span>
+      YOUR PERSONAL CALL ASSISTANT
+     </div>
+     <img alt="헤드셋을 쓴 파란 말풍선과 휴대전화, 답변·일정 카드로 표현한 AI 전화 비서" fetchpriority="high" height="1024" src="assets/hero-assistant.png" width="1536"/>
+     <div class="hero-result">
+      <span class="result-icon" data-icon="check">
+      </span>
+      <div>
+       <b>
+        배송 전화를 대신 받았어요.
+       </b>
+       <span>
+        용건 확인 완료 · 방문 시간은 직접 확인
+       </span>
+      </div>
+      <span class="result-tag">
+       응대 예시
+      </span>
+     </div>
+    </div>
+   </header>
+   <section aria-label="Assistant 가상 사용자 반응" class="review-ribbon">
+    <div class="ticker">
+     <div class="ticker-track">
+      <div class="ticker-group">
+       <span class="ticker-item">
+        <span aria-hidden="true" class="ticker-avatar">
+         1
+        </span>
+        <span>
+         <b>
+          30대 직장인 · 택배 기사 연락
+         </b>
+         “회의 중 택배 기사님 전화를 못 받으면 다시 문자하게 돼요. 문 앞에 놓아달라는 정도는 대신 전해주면 좋겠어요.”
+         <em>
+          가상 사용자 상황
+         </em>
+        </span>
+       </span>
+       <span class="ticker-item">
+        <span aria-hidden="true" class="ticker-avatar">
+         2
+        </span>
+        <span>
+         <b>
+          30대 회사원 · 모르는 번호
+         </b>
+         “회의가 끝나고 부재중 번호로 다시 걸었는데 보험 권유였어요. 누가 무슨 일로 전화했는지만 먼저 알고 싶어요.”
+         <em>
+          가상 사용자 상황
+         </em>
+        </span>
+       </span>
+       <span class="ticker-item">
+        <span aria-hidden="true" class="ticker-avatar">
+         3
+        </span>
+        <span>
+         <b>
+          40대 직장인 · 병원 예약
+         </b>
+         “병원에서 예약 변경 전화가 오면 가능한 시간을 확인해주고, 최종 시간만 제가 고를 수 있으면 편할 것 같아요.”
+         <em>
+          가상 사용자 상황
+         </em>
+        </span>
+       </span>
+       <span class="ticker-item">
+        <span aria-hidden="true" class="ticker-avatar">
+         4
+        </span>
+        <span>
+         <b>
+          40대 학부모 · 학원 연락
+         </b>
+         “아이 학원에서 수업 시간이 바뀐다고 연락할 때가 있어요. 바뀐 시간과 제가 확인할 일만 남겨주면 좋겠어요.”
+         <em>
+          가상 사용자 상황
+         </em>
+        </span>
+       </span>
+       <span class="ticker-item">
+        <span aria-hidden="true" class="ticker-avatar">
+         5
+        </span>
+        <span>
+         <b>
+          30대 운전자 · 이동 중 전화
+         </b>
+         “운전 중 온 전화는 급한 일인지 몰라 계속 신경 쓰여요. 용건만 확인해주면 도착해서 바로 처리할 수 있을 것 같아요.”
+         <em>
+          가상 사용자 상황
+         </em>
+        </span>
+       </span>
+      </div>
+      <div aria-hidden="true" class="ticker-group">
+       <span class="ticker-item">
+        <span aria-hidden="true" class="ticker-avatar">
+         1
+        </span>
+        <span>
+         <b>
+          30대 직장인 · 택배 기사 연락
+         </b>
+         “회의 중 택배 기사님 전화를 못 받으면 다시 문자하게 돼요. 문 앞에 놓아달라는 정도는 대신 전해주면 좋겠어요.”
+         <em>
+          가상 사용자 상황
+         </em>
+        </span>
+       </span>
+       <span class="ticker-item">
+        <span aria-hidden="true" class="ticker-avatar">
+         2
+        </span>
+        <span>
+         <b>
+          30대 회사원 · 모르는 번호
+         </b>
+         “회의가 끝나고 부재중 번호로 다시 걸었는데 보험 권유였어요. 누가 무슨 일로 전화했는지만 먼저 알고 싶어요.”
+         <em>
+          가상 사용자 상황
+         </em>
+        </span>
+       </span>
+       <span class="ticker-item">
+        <span aria-hidden="true" class="ticker-avatar">
+         3
+        </span>
+        <span>
+         <b>
+          40대 직장인 · 병원 예약
+         </b>
+         “병원에서 예약 변경 전화가 오면 가능한 시간을 확인해주고, 최종 시간만 제가 고를 수 있으면 편할 것 같아요.”
+         <em>
+          가상 사용자 상황
+         </em>
+        </span>
+       </span>
+       <span class="ticker-item">
+        <span aria-hidden="true" class="ticker-avatar">
+         4
+        </span>
+        <span>
+         <b>
+          40대 학부모 · 학원 연락
+         </b>
+         “아이 학원에서 수업 시간이 바뀐다고 연락할 때가 있어요. 바뀐 시간과 제가 확인할 일만 남겨주면 좋겠어요.”
+         <em>
+          가상 사용자 상황
+         </em>
+        </span>
+       </span>
+       <span class="ticker-item">
+        <span aria-hidden="true" class="ticker-avatar">
+         5
+        </span>
+        <span>
+         <b>
+          30대 운전자 · 이동 중 전화
+         </b>
+         “운전 중 온 전화는 급한 일인지 몰라 계속 신경 쓰여요. 용건만 확인해주면 도착해서 바로 처리할 수 있을 것 같아요.”
+         <em>
+          가상 사용자 상황
+         </em>
+        </span>
+       </span>
+      </div>
+     </div>
+    </div>
+    <div class="ticker-control">
+     <span>
+      실제 통화 상황을 바탕으로 구성한 가상 사용자 예시 · 실제 인터뷰 또는 이용 후기 아님
+     </span>
+     <button aria-pressed="false" id="tickerToggle">
+      Ⅱ 일시정지
+     </button>
+    </div>
+   </section>
+   <section class="survey" id="survey">
+    <div class="survey-header">
+     <h2>
+      당신의 전화는 어떤가요?
+     </h2>
+     <p>
+      6문항 · 선택하면 다음 질문으로 이동합니다.
+     </p>
+    </div>
+    <div class="panel">
+     <div class="progress">
+      <span aria-live="polite" id="status">
+      </span>
+      <span class="track">
+       <i id="bar">
+       </i>
+      </span>
+     </div>
+     <div class="question" id="question">
+     </div>
+     <div class="controls">
+      <button class="back" id="back">
+       ← 이전 질문
+      </button>
+      <span class="stepnote" id="stepnote">
+       선택하면 다음 질문으로 이동합니다
+      </span>
+     </div>
+    </div>
+    <p class="survey-info">
+     만 14세 이상 대상 · 응답과 유입 경로는 서비스 연구 및 설문 통계에 사용됩니다.
+    </p>
+   </section>
+  </div>
+  <section class="feature">
+   <div class="wrap">
+    <div class="eyebrow">
+     How it could work
+    </div>
+    <h2>
+     전화는 대신 받고,
+     <br/>
+     결정할 일만 남겨드립니다.
+    </h2>
+    <p>
+     AI가 용건을 확인하고, 미리 정한 범위에서 응대합니다.
+     <br/>
+     새로운 약속이나 판단이 필요한 경우에는 직접 확인하도록 알려줍니다.
+    </p>
+    <p class="live-note">
+     아래는 응대 예시입니다. 자동 확정 등 실제 제공 범위는 이번 조사 후 검토합니다.
+    </p>
+    <div aria-label="응대 흐름" class="workflow-strip">
+     <span>
+      <i data-icon="phone">
+      </i>
+      대신 받기
+     </span>
+     <i data-icon="arrow">
+     </i>
+     <span>
+      <i data-icon="message">
+      </i>
+      답변 전하기
+     </span>
+     <i data-icon="arrow">
+     </i>
+     <span>
+      <i data-icon="list">
+      </i>
+      결과 정리
+     </span>
+    </div>
+    <div class="feature-grid">
+     <div aria-label="AI 응대 과정" class="tabs" role="tablist">
+      <button class="tab" data-story="0" role="tab">
+       <span class="tab-icon" data-icon="phone">
+       </span>
+       01 · 용건 확인
+      </button>
+      <button class="tab" data-story="1" role="tab">
+       <span class="tab-icon" data-icon="message">
+       </span>
+       02 · 정해둔 답변 전달
+      </button>
+      <button class="tab" data-story="2" role="tab">
+       <span class="tab-icon" data-icon="calendar">
+       </span>
+       03 · 결정할 일 구분
+      </button>
+      <button class="tab" data-story="3" role="tab">
+       <span class="tab-icon" data-icon="list">
+       </span>
+       04 · 결과 알림
+      </button>
+     </div>
+     <div class="story" id="story" role="tabpanel">
+     </div>
+    </div>
+   </div>
+  </section>
+  <div class="wrap">
+   <div class="principles">
+    <div>
+     <span class="principle-icon" data-icon="sliders">
+     </span>
+     <b>
+      허용한 범위 안에서
+     </b>
+     <p>
+      전달할 답변과 맡길 범위를 직접 정하는 방식입니다.
+     </p>
+    </div>
+    <div>
+     <span class="principle-icon" data-icon="shield">
+     </span>
+     <b>
+      중요한 결정은 직접
+     </b>
+     <p>
+      새로운 약속이나 결제가 필요하면 확인을 요청합니다.
+     </p>
+    </div>
+    <div>
+     <span class="principle-icon" data-icon="list">
+     </span>
+     <b>
+      필요한 내용만 한눈에
+     </b>
+     <p>
+      용건, 전달한 답변, 남은 일을 구분해 알려줍니다.
+     </p>
+    </div>
+   </div>
+   <section class="voices">
+    <div class="eyebrow">
+     USER SCENARIO
+    </div>
+    <div class="voices-head">
+     <div>
+      <h2>
+       이런 통화 경험을 떠올렸습니다.
+      </h2>
+      <p class="hint">
+       일상에서 발생할 수 있는 상황을 구체화한 가상 사용자 예시입니다. 실제 인터뷰나 이용 후기가 아닙니다.
+      </p>
+     </div>
+     <span class="scenario-note">
+      CONCEPT SAMPLE · 02
+     </span>
+    </div>
+    <div class="voice-grid">
+     <article class="voice scenario-card">
+      <header>
+       <span aria-hidden="true" class="user-avatar">
+        J
+       </span>
+       <div>
+        <b>
+         30대 직장인
+        </b>
+        <small>
+         주 2~3회 회의 · 모르는 번호 재통화
+        </small>
+       </div>
+       <span class="sample-badge">
+        가상 예시
+       </span>
+      </header>
+      <blockquote>
+       “회의가 끝나고 부재중 번호로 다시 전화했는데 보험 권유였어요.
+       <mark>
+        누가 무슨 일로 전화했는지만
+       </mark>
+       먼저 확인됐으면 좋겠어요.”
+      </blockquote>
+      <div class="scenario-facts">
+       <div>
+        <small>
+         지금은
+        </small>
+        <b>
+         모르는 번호에 직접 재통화
+        </b>
+       </div>
+       <span data-icon="arrow">
+       </span>
+       <div>
+        <small>
+         바라는 도움
+        </small>
+        <b>
+         발신자·용건만 먼저 요약
+        </b>
+       </div>
+      </div>
+     </article>
+     <article class="voice scenario-card">
+      <header>
+       <span aria-hidden="true" class="user-avatar second">
+        S
+       </span>
+       <div>
+        <b>
+         40대 학부모
+        </b>
+        <small>
+         학원·병원 일정 연락이 잦음
+        </small>
+       </div>
+       <span class="sample-badge">
+        가상 예시
+       </span>
+      </header>
+      <blockquote>
+       “아이 학원에서 수업 시간이 바뀐다는 전화가 오면 바로 못 받을 때가 많아요.
+       <mark>
+        바뀐 시간과 제가 확인할 일만
+       </mark>
+       남겨주면 좋겠어요.”
+      </blockquote>
+      <div class="scenario-facts">
+       <div>
+        <small>
+         지금은
+        </small>
+        <b>
+         문자를 기다리거나 다시 전화
+        </b>
+       </div>
+       <span data-icon="arrow">
+       </span>
+       <div>
+        <small>
+         바라는 도움
+        </small>
+        <b>
+         변경 내용 요약 · 결정은 보류
+        </b>
+       </div>
+      </div>
+     </article>
+    </div>
+   </section>
+   <section aria-label="자주 묻는 질문" class="faq">
+    <div>
+     <div class="eyebrow">
+      GOOD TO KNOW
+     </div>
+     <h2>
+      궁금한 점을
+      <br/>
+      먼저 확인하세요.
+     </h2>
+    </div>
+    <div>
+     <details>
+      <summary>
+       AI가 모든 전화를 대신 받나요?
+      </summary>
+      <p>
+       사용자가 정한 조건에서 대신 응대하는 콘셉트입니다. 어떤 전화와 상황에 필요한지 이번 설문에서 확인하고 있습니다.
+      </p>
+     </details>
+     <details>
+      <summary>
+       AI가 알아서 예약이나 약속을 확정하나요?
+      </summary>
+      <p>
+       허용한 답변을 전달하는 기능과 새로운 결정을 내리는 기능은 구분합니다. 새로운 일정이나 약속은 사용자 확인이 필요한 방식으로 제안합니다.
+      </p>
+     </details>
+     <details>
+      <summary>
+       지금 바로 사용할 수 있나요?
+      </summary>
+      <p>
+       현재는 서비스 콘셉트에 대한 의견을 수집하는 단계입니다. 화면은 동작 예시이며, 출시 기능과 알림 전달 방식은 확정되지 않았습니다.
+      </p>
+     </details>
+    </div>
+   </section>
+   <div class="bottom">
+    <span class="bottom-icon" data-icon="message">
+    </span>
+    <h2>
+     어디까지 맡길지는
+     <br/>
+     당신의 의견에서 시작합니다.
+    </h2>
+    <button class="pill" data-start="">
+     내 의견 남기기 ↗
+    </button>
+   </div>
+   <footer>
+    CALL X · Assistant concept research
+    <br/>
+    화면과 반응은 서비스 이해를 위한 가상 예시입니다.
+   </footer>
+  </div>
+  <script src="assets/js/questions.js">
+  </script>
+  <script src="assets/js/config.js">
+  </script>
+  <script src="assets/js/core.js">
+  </script>
+  <script src="assets/js/ui.js">
+  </script>
+  <script src="assets/js/survey.js">
+  </script>
+ </body>
+</html>
